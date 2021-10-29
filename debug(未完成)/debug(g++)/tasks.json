@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "g++ build active file",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+            "-std=c++14",
+            "debug/debug.cpp",
+            "-o",
+            "debug/debug",
+            "-g"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }

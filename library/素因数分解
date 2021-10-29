@@ -1,0 +1,14 @@
+vp prime_factorize(int n){
+    vp ret;
+    for(int p=2; p*p<=n; p++){
+        if(n%p!=0) continue;
+        int num=0;
+        while(n%p==0){
+            num++;
+            n/=p;
+        }
+        ret.pb(mp(p,num));
+    }
+    if(n!=1) ret.pb(mp(n,1));
+    return ret;
+}

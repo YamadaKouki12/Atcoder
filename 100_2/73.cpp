@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define ll long long
+#define ld long double
+template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
+template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
+using P=pair<long long,long long>;
+#define rep(i,n) for(long long i=0; i<(long long)n; i++)
+#define FOR(i,a,b) for(long long i=a; i<b; i++)
+#define all(x) (x).begin(), (x).end()
+#define SZ(x) ((long long)(x).size())
+#define COUT(x) cout << x << endl
+#define PB push_back
+#define MP make_pair
+#define F first
+#define S second
+#define ld long double
+#define vint vector<int>
+#define vvint vector<vector<int>>
+#define vstr vector<string>
+#define vp vector<pair<int,int>>
+#define vb vector<bool>
+#define SUM(x) accumulate(x.begin(),x.end(),0)
+#define MAX(x) *max_element(x.begin(),x.end())
+#define MIN(x) *min_element(x.begin(),x.end())
+#define couty cout<<"Yes"<<endl
+#define coutn cout<<"No"<<endl
+#define coutY cout<<"YES"<<endl
+#define coutN cout<<"NO"<<endl
+#define yn(x) cout<<(x?"Yes":"No")<<endl
+#define YN(x) cout<<(x?"YES":"NO")<<endl
+long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}
+long long lcm(long long a, long long b){return a*b/gcd(a,b);}
+const long long dx[4]={1,0,-1,0};
+const long long dy[4]={0,1,0,-1};
+const long long INF = 1e12;
+const long long MOD = 1e9+7;
+
+int modpow(int a, int n, int mod) {
+    int res=1;
+    while(n>0) {
+        if(n&1) res=res*a%mod;
+        a=a*a%mod;
+        n>>=1;
+    }
+    return res;
+}
+
+
+signed main(){
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout<<fixed<<setprecision(15);
+
+    int x,y; cin >> x >> y;
+    if((x+y)%3!=0){
+        cout<<0<<endl;
+
+        return 0;
+    }
+
+    if(2*x-y<0 || 2*y-x<0){
+        cout<<0<<endl;
+        return 0;
+    }
+
+    int a=(2*y-x)/3;
+    int b=(2*x-y)/3;
+
+    int res=1;
+
+    //cout<<a<<' '<<b<<endl;
+    /*
+    for(int i=1; i<=(a+b); i++){
+        res=res*(i%MOD);
+        res%=MOD;
+    }
+    for(int i=1; i<=min(a,b); i++){
+        res*=modpow(i,MOD-2,MOD);
+        res%=MOD;
+    }
+    for(int i=1; i<=max(a,b); i++){
+        res*=modpow(i,MOD-2,MOD);
+        res%=MOD;
+    }
+    */
+
+   for(int i=b+1; i<=a+b; i++){
+       res=res*(i%MOD);
+       res%=MOD;
+   }
+   for(int i=1; i<=a; i++){
+       res*=modpow(i,MOD-2,MOD);
+       res%=MOD;
+   }
+    
+    cout<<res<<endl;
+}

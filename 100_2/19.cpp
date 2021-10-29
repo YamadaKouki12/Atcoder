@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define ll long long
+#define ld long double
+template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
+template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
+using P=pair<long long,long long>;
+#define rep(i,n) for(long long i=0; i<(long long)n; i++)
+#define FOR(i,a,b) for(long long i=a; i<b; i++)
+#define all(x) (x).begin(), (x).end()
+#define SZ(x) ((long long)(x).size())
+#define COUT(x) cout << x << endl
+#define PB(x) push_back(x)
+#define MP make_pair
+#define f first
+#define s second
+#define ld long double
+#define vint vector<int>
+#define vvint vector<vector<int>>
+#define vstr vector<string>
+#define vp vector<pair<int,int>>
+#define SUM(x) accumulate(x.begin(),x.end(),0)
+#define MAX(x) *max_element(x.begin(),x.end())
+#define MIN(x) *min_element(x.begin(),x.end())
+#define couty cout<<'Y'<<'e'<<'s'<<endl
+#define coutn cout<<'N'<<'o'<<endl
+#define coutY cout<<'Y'<<'E'<<'S'<<endl
+#define coutN cout<<'N'<<'O'<<endl
+#define yn(x) cout<<(x?"Yes":"No")<<endl
+#define YN(x) cout<<(x?"YES":"NO")<<endl
+long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}
+long long lcm(long long a, long long b){return a*b/gcd(a,b);}
+const long long dx[4]={1,0,-1,0};
+const long long dy[4]={0,1,0,-1};
+const long long INF = 1e12;
+const long long MOD = 1e9+7;
+
+signed main(){
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout<<fixed<<setprecision(15);
+
+    int D; cin >> D;
+    int n,m; cin >> n >> m;
+    vint d,k;
+    rep(i,n-1){
+        int a; cin >> a;
+        d.PB(a);
+    }
+    d.PB(0); d.PB(D);
+    rep(i,m){
+        int a; cin >> a;
+        k.PB(a);
+    }
+    sort(all(d));
+
+    int res=0;
+    rep(i,m){
+        if(binary_search(all(d),k[i])) continue;
+        res+=min(abs(k[i]-*(lower_bound(all(d),k[i])-1)),abs(k[i]-*(lower_bound(all(d),k[i]))));
+    }
+    cout<<res<<endl;
+    //for(int v:d) cout<<v<<' '; cout<<endl;
+    //for(int v:k) cout<<v<<' '; cout<<endl;
+}

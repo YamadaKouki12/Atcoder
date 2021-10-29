@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "code-runner.runInTerminal": true,
+    "workbench.sideBar.location": "left",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "runner.languageMap": {
+        "cpp": "/Users/[user名]/vsc_run/cpp.sh"
+    },
+    "files.associations": {
+        "type_traits": "cpp",
+        "ostream": "cpp"
+    }
+}

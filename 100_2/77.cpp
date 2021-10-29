@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define ll long long
+#define ld long double
+template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
+template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
+using P=pair<long long,long long>;
+#define rep(i,n) for(long long i=0; i<(long long)n; i++)
+#define FOR(i,a,b) for(long long i=a; i<b; i++)
+#define all(x) (x).begin(), (x).end()
+#define SZ(x) ((long long)(x).size())
+#define COUT(x) cout << x << endl
+#define PB push_back
+#define MP make_pair
+#define F first
+#define S second
+#define ld long double
+#define vint vector<int>
+#define vvint vector<vector<int>>
+#define vstr vector<string>
+#define vp vector<pair<int,int>>
+#define vb vector<bool>
+#define SUM(x) accumulate(x.begin(),x.end(),0)
+#define MAX(x) *max_element(x.begin(),x.end())
+#define MIN(x) *min_element(x.begin(),x.end())
+#define couty cout<<"Yes"<<endl
+#define coutn cout<<"No"<<endl
+#define coutY cout<<"YES"<<endl
+#define coutN cout<<"NO"<<endl
+#define yn(x) cout<<(x?"Yes":"No")<<endl
+#define YN(x) cout<<(x?"YES":"NO")<<endl
+long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}
+long long lcm(long long a, long long b){return a*b/gcd(a,b);}
+const long long dx[4]={1,0,-1,0};
+const long long dy[4]={0,1,0,-1};
+const long long INF = 1e12;
+//const long long MOD = 1e9+7;
+const int MOD=1e5;
+
+signed main(){
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout<<fixed<<setprecision(15);
+
+    int n,k; cin >> n >> k;
+    vint a(n,0),s(n,0);
+    for(int i=1; i<n; i++) cin >> a[i];
+    rep(i,n-1) s[i+1]=s[i]+a[i+1];
+    int res=0;
+    int pos=0;
+    rep(i,k){
+        int move; cin >> move;
+        int to=pos+move;
+        res+=abs(s[to]-s[pos]);
+        res%=MOD;
+        pos=to;
+        //cout<<abs(s[to]-s[pos])<<" ";
+    }
+    //cout<<endl;
+    //rep(i,n) cout<<s[i]<<' ';
+    cout<<res<<endl;
+}
