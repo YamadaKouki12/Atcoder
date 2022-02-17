@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 #define ll long long
 #define ld long double
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }

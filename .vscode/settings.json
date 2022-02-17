@@ -5,7 +5,8 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "runner.languageMap": {
-        "cpp": "/Users/[user名]/vsc_run/cpp.sh"
+        "cpp": "/Users/[user名]/vsc_run/cpp.sh",
+        "python": "python -u",
     },
     "files.associations": {
         "type_traits": "cpp",

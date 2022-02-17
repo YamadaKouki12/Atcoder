@@ -4,6 +4,8 @@ using namespace std;
 #define ld long double
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
+inline void IN(void){return;}
+template <typename First, typename... Rest>void IN(First &first, Rest &...rest){cin >> first;IN(rest...);return;}
 using P=pair<long long,long long>;
 #define rep(i,n) for(long long i=0; i<(long long)n; i++)
 #define req(i,n) for(long long i=n-1; i>=0; i--)
@@ -49,5 +51,12 @@ signed main(){
     ios::sync_with_stdio(false);
     cout<<fixed<<setprecision(15);
 
-    
+    int n,w; IN(n,w);
+    vp ab;
+    rep(i,n) cin >> ab[i].F >> ab[i].S;
+    sort(all(ab));
+    int res=0;
+    rep(i,n){
+        res += ab[i].F * min(w,)
+    }
 }
